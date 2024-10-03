@@ -19,6 +19,7 @@
 		46AE5DCF2CAE6D8400105010 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AE5DCE2CAE6D8400105010 /* String+Extension.swift */; };
 		46AE5DD22CAEB01400105010 /* InventoryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AE5DD12CAEB01400105010 /* InventoryFormView.swift */; };
 		46AE5DD42CAEB08200105010 /* InventoryFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AE5DD32CAEB08200105010 /* InventoryFormViewModel.swift */; };
+		46AE5DD72CAF018A00105010 /* USDZScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 46AE5DD62CAF018A00105010 /* USDZScanner */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46AE5DD72CAF018A00105010 /* USDZScanner in Frameworks */,
 				46AE5DC22CAE4D9500105010 /* FirebaseFirestore in Frameworks */,
 				46AE5DC42CAE4D9500105010 /* FirebaseStorage in Frameworks */,
 			);
@@ -118,6 +120,7 @@
 			packageProductDependencies = (
 				46AE5DC12CAE4D9500105010 /* FirebaseFirestore */,
 				46AE5DC32CAE4D9500105010 /* FirebaseStorage */,
+				46AE5DD62CAF018A00105010 /* USDZScanner */,
 			);
 			productName = XCAInventoryTracker;
 			productReference = 46AE5DAF2CAE4CB600105010 /* XCAInventoryTracker.app */;
@@ -149,6 +152,7 @@
 			mainGroup = 46AE5DA62CAE4CB600105010;
 			packageReferences = (
 				46AE5DC02CAE4D9500105010 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				46AE5DD52CAF018A00105010 /* XCRemoteSwiftPackageReference "USDZScanner" */,
 			);
 			productRefGroup = 46AE5DB02CAE4CB600105010 /* Products */;
 			projectDirPath = "";
@@ -321,6 +325,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XCAInventoryTracker/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs the permission for scan objects";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,6 +356,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XCAInventoryTracker/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs the permission for scan objects";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -401,6 +407,14 @@
 				minimumVersion = 11.3.0;
 			};
 		};
+		46AE5DD52CAF018A00105010 /* XCRemoteSwiftPackageReference "USDZScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/USDZScanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -413,6 +427,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 46AE5DC02CAE4D9500105010 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		46AE5DD62CAF018A00105010 /* USDZScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46AE5DD52CAF018A00105010 /* XCRemoteSwiftPackageReference "USDZScanner" */;
+			productName = USDZScanner;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

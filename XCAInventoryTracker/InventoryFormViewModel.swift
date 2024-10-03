@@ -92,10 +92,16 @@ class InventoryFormViewModel: ObservableObject {
     }
     
     @MainActor
-    func uploadUSDZ(fileURL: URL) async {
-        let gotAccess = fileURL.startAccessingSecurityScopedResource() //  Grants your app temporary access to the file chosen by the user outside of your sandbox.
-        guard gotAccess, let data = try? Data(contentsOf: fileURL) else { return }
-        fileURL.stopAccessingSecurityScopedResource() // Releases that access when you’re done to avoid resource leaks and unnecessary permission usage.
+    func uploadUSDZ(fileURL: URL, isSecurityScopedResource: Bool = false) async {
+        if isSecurityScopedResource, !fileURL.startAccessingSecurityScopedResource() {
+            return
+        }
+        
+        guard let data = try? Data(contentsOf: fileURL) else { return }
+        
+        if isSecurityScopedResource {
+            fileURL.stopAccessingSecurityScopedResource() // Releases that access when you’re done to avoid resource leaks and unnecessary permission usage.
+        }
         
         uploadProgress = .init(fractionCompleted: 0, totalUnitCount: 0, completedUnitCount: 0)
         loadingState = .uploading(.usdz)
